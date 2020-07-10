@@ -5,6 +5,23 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: `@prismicio/gatsby-source-prismic-graphql`,
+      options: {
+        repositoryName: `leasucikova-com`,
+        path: `/preview`,
+        previews: true,
+        pages: [
+          {
+            type: `Page`,
+            match: `/:uid`,
+            path: `/page-preview`,
+            component: require.resolve(`./src/templates/page.js`),
+          },
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

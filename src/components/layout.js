@@ -1,45 +1,114 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
+import styled from "styled-components"
 import "./layout.css"
+import { StaticQuery, graphql, Link } from "gatsby"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+
+const navigationQuery = graphql`
+  {
+    prismic {
+      allNavigations {
+        edges {
+          node {
+            branding
+            navigation_links {
+              label
+              link {
+                ... on PRISMIC_Page {
+                  _meta {
+                    uid
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
-  `)
+  }
+`
+const MainWrapper = styled.main`
+  margin: 0 auto;
+`
 
+const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  height: 66px;
+  padding: 0 16px;
+  box-sizing: border-box;
+`
+const Branding = styled.div`
+  a {
+    color: violet;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+  }
+`
+
+const NavLinks = styled.div`
+  display: flex;
+`
+
+const NavLink = styled.div`
+  a {
+    color: white;
+    padding: 0 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+
+    &:hover {
+      color: violet;
+    }
+  }
+`
+
+// Error: Objects are not valid as a React child (found: object with keys {type, text, spans}). If you meant to render a collection of children, use an array instead.
+
+// Don't pass an object as a prop to React.child. Instead, pass it as { ... item} and then access using props.{property} that might fix your problem
+
+const Layout = ({ children }) => {
+  
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      <Header>
+        <StaticQuery
+          query={`${navigationQuery}`}
+          render={data => {
+            console.log(data)
+            return (
+              <>
+                <Branding>
+                  <Link to="/">
+                    {data.prismic.allNavigations.edges[0].node.branding}
+                  </Link>
+                </Branding>
+
+                <NavLinks>
+                  {data.prismic.allNavigations.edges[0].node.navigation_links.map(
+                    link => {
+                      return (
+                        <NavLink key={link.link._meta.uid}>
+                          <Link to={`/${link.link._meta.uid}`}>
+                            {link.label}
+                          </Link>
+                        </NavLink>
+                      )
+                    }
+                  )}
+                </NavLinks>
+              </>
+            )
+          }}
+        />
+      </Header>
+      <MainWrapper>{children}</MainWrapper>
     </>
   )
 }
