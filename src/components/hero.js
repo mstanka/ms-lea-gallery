@@ -6,16 +6,16 @@ const HeroWrapper = styled.section`
   background: url('${props => props.backgroundImage}');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 30vh;
+  height: 40vh;
   display: flex;
   align-items: center;  
   text-align: center;
   color: white;
-
+ 
   div {
-    max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
+  }
 `
 
 const Hero = ({ title, content, backgroundImage }) => {

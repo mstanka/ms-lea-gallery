@@ -3,8 +3,9 @@ import styled from "styled-components"
 import PaintingCard from "./paintingCard"
 
 const PaintingsGridWrapper = styled.section`
-  max-width: 800px;
-  margin: 2rem auto; 
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: 1fr;
 `
 
 const PaintingsGrid = ({ paintings }) => {
@@ -15,8 +16,7 @@ const PaintingsGrid = ({ paintings }) => {
           <PaintingCard
             paintingTitle={painting.painting_title}
             paintingThumb={painting.painting_thumb.url}
-            buttonLabel={painting.button_label}
-            buttonDestination={`/${painting.button_destination._meta.uid}`}
+            paintingLink={`/${painting.link._meta.uid}`}            
             key={i}
           />
         )

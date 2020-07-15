@@ -4,51 +4,34 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 const PaintingCardWrapper = styled.section`
-  padding: 20px;
-  background: #eee;
-  border-radius: 20px;
-  margin: 20px 0;
+  padding: 1rem;
+  background: #0a5959;
+  border-radius: 10px;
   text-align: center;
+  width: 320px;
+  margin: 1rem auto;
+  color: white;
 
   .painting-card-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: space-between;
+
+    a {
+      cursor: pointer;
+    }
   }
 `
 
-const Button = styled.div`
-  background: purple;
-  display: inline-block;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 30%;
-  margin: 0 auto;
-
-  a {
-    color: white;
-    padding: 5px 10px;
-    display: inline-block;
-    text-decoration: none;
-  }
-`
-
-const PaintingCard = ({
-  paintingTitle,
-  paintingThumb,
-  buttonLabel,
-  buttonDestination,
-}) => {
+const PaintingCard = ({ paintingTitle, paintingThumb, paintingLink }) => {
   return (
     <PaintingCardWrapper>
       <RichText render={paintingTitle} />
       <div className="painting-card-content">
-        <div>
+        <Link to={paintingLink}>
           <img src={paintingThumb} alt="Painting" />
-        </div>
-        <Button>
-          <Link to={buttonDestination}>{buttonLabel}</Link>
-        </Button>
+        </Link>
       </div>
     </PaintingCardWrapper>
   )

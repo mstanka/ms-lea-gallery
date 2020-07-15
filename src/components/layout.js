@@ -4,7 +4,6 @@ import styled from "styled-components"
 import "./layout.css"
 import { StaticQuery, graphql, Link } from "gatsby"
 
-
 const navigationQuery = graphql`
   {
     prismic {
@@ -29,7 +28,9 @@ const navigationQuery = graphql`
   }
 `
 const MainWrapper = styled.main`
+  max-width: 400px;
   margin: 0 auto;
+  background: #592246;
 `
 
 const Header = styled.header`
@@ -40,6 +41,8 @@ const Header = styled.header`
   height: 66px;
   padding: 0 16px;
   box-sizing: border-box;
+  max-width: 400px;
+  margin: 0 auto;
 `
 const Branding = styled.div`
   a {
@@ -74,7 +77,6 @@ const NavLink = styled.div`
 // Don't pass an object as a prop to React.child. Instead, pass it as { ... item} and then access using props.{property} that might fix your problem
 
 const Layout = ({ children }) => {
-  
   return (
     <>
       <Header>
