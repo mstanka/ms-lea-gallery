@@ -21,13 +21,14 @@ export const query = graphql`
               ... on PRISMIC_HomepageBodyPaintings_grid {
                 type
                 fields {
-                  link {
+                  painting_link {
                     ... on PRISMIC_Page {
                       _meta {
+                        id
                         uid
                       }
                     }
-                  }                  
+                  }
                   painting_thumb
                   painting_title
                 }

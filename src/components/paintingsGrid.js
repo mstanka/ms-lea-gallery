@@ -24,7 +24,7 @@ const PaintingsGrid = ({ paintings }) => {
           <PaintingCard
             paintingTitle={painting.painting_title}
             paintingThumb={painting.painting_thumb.url}
-            paintingLink={`/${painting.link._meta.uid}`}            
+            paintingLink={`/${painting.painting_link._meta.uid}`}            
             key={i}
           />
         )
