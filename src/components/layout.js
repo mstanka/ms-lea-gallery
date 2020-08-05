@@ -31,6 +31,14 @@ const MainWrapper = styled.main`
   max-width: 400px;
   margin: 0 auto;
   background: #592246;
+
+  @media screen and (min-width: 768px) {
+    max-width: 750px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    max-width: 1000px;
+  }
 `
 
 const Header = styled.header`
@@ -43,6 +51,14 @@ const Header = styled.header`
   box-sizing: border-box;
   max-width: 400px;
   margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    max-width: 750px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    max-width: 1000px;
+  }
 `
 const Branding = styled.div`
   a {

@@ -6,6 +6,14 @@ const PaintingsGridWrapper = styled.section`
   margin: 2rem auto;
   display: grid;
   grid-template-columns: 1fr;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);    
+  }
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `
 
 const PaintingsGrid = ({ paintings }) => {

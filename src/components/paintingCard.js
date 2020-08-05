@@ -11,16 +11,15 @@ const PaintingCardWrapper = styled.section`
   width: 320px;
   margin: 1rem auto;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
 
   .painting-card-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: space-between;
-
     a {
       cursor: pointer;
-      transition: transform .4s ease-in;
+      transition: transform 0.4s ease-in;
 
       img {
         width: 100%;
