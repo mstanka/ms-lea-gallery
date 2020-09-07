@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import styled from "styled-components"
 import "../styles/global.scss"
 import { StaticQuery, graphql, Link } from "gatsby"
-import ThemeChanger from "./ThemeChanger"
+import ThemeChanger from "./themeChanger"
 
 const navigationQuery = graphql`
   {
