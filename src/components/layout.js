@@ -1,8 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
-import "./layout.css"
+import "../styles/global.scss"
 import { StaticQuery, graphql, Link } from "gatsby"
+import ThemeChanger from "./ThemeChanger"
 
 const navigationQuery = graphql`
   {
@@ -29,11 +30,11 @@ const navigationQuery = graphql`
 `
 const MainWrapper = styled.main`
   max-width: 400px;
-  margin: 0 auto;
-  background: #592246;
+  margin: 0 auto;  
+  background: var(--featured-bg);
 
   @media screen and (min-width: 768px) {
-    max-width: 750px;
+    max-width: 730px;
   }
 
   @media screen and (min-width: 1024px) {
@@ -45,15 +46,15 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: black;
-  height: 66px;
-  padding: 0 16px;
+  background: var(--header-bg);
+  min-height: 100px;
+  padding: 0 1rem;
   box-sizing: border-box;
   max-width: 400px;
   margin: 0 auto;
 
   @media screen and (min-width: 768px) {
-    max-width: 750px;
+    max-width: 730px;
   }
 
   @media screen and (min-width: 1024px) {
@@ -61,10 +62,12 @@ const Header = styled.header`
   }
 `
 const Branding = styled.div`
+  margin-right: auto;
+
   a {
-    color: violet;
+    color: var(--secondary-text-color);
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.5rem;
     text-decoration: none;
   }
 `
@@ -75,22 +78,20 @@ const NavLinks = styled.div`
 
 const NavLink = styled.div`
   a {
-    color: white;
-    padding: 0 16px;
+    color: var(--primary-text-color);
+    padding-bottom: 0.5rem;
+    margin: 0 1rem;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1rem;
 
     &:hover {
-      color: violet;
+      color: var(--secondary-text-color);
+      border-bottom: 6px solid var(--secondary-text-color);
     }
   }
 `
-
-// Error: Objects are not valid as a React child (found: object with keys {type, text, spans}). If you meant to render a collection of children, use an array instead.
-
-// Don't pass an object as a prop to React.child. Instead, pass it as { ... item} and then access using props.{property} that might fix your problem
 
 const Layout = ({ children }) => {
   return (
@@ -121,6 +122,7 @@ const Layout = ({ children }) => {
                     }
                   )}
                 </NavLinks>
+                <ThemeChanger />
               </>
             )
           }}

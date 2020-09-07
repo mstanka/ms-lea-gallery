@@ -1,11 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Gatsby art gallery`,
+    description: `Awesome art gallery made using Gatsby and Prismic.`,
+    author: `@mstanka`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
+    'gatsby-plugin-dark-mode',
+    `gatsby-plugin-sass`,
     {
       resolve: `@prismicio/gatsby-source-prismic-graphql`,
       options: {
