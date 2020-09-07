@@ -1,8 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
-import styled from "styled-components"
-import "../styles/global.scss"
 import { StaticQuery, graphql, Link } from "gatsby"
+import "../styles/global.scss"
+import styled from "styled-components"
 import ThemeChanger from "./themeChanger"
 
 const navigationQuery = graphql`
@@ -108,7 +108,7 @@ const Layout = ({ children }) => {
                     {data.prismic.allNavigations.edges[0].node.branding}
                   </Link>
                 </Branding>
-
+  
                 <NavLinks>
                   {data.prismic.allNavigations.edges[0].node.navigation_links.map(
                     link => {

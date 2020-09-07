@@ -8,7 +8,8 @@ const PaintingCardWrapper = styled.section`
   background: var(--card-bg);
   border-radius: 5px;
   text-align: center;
-  width: 320px;
+  max-width: 310px;
+  width: 100%;
   min-height: 420px;
   margin: 1rem auto;
   color: var(--primary-text-color);
