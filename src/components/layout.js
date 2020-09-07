@@ -30,7 +30,7 @@ const navigationQuery = graphql`
 `
 const MainWrapper = styled.main`
   max-width: 400px;
-  margin: 0 auto;  
+  margin: 0 auto;
   background: var(--featured-bg);
 
   @media screen and (min-width: 768px) {
@@ -122,11 +122,11 @@ const Layout = ({ children }) => {
                     }
                   )}
                 </NavLinks>
-                <ThemeChanger />
               </>
             )
           }}
         />
+        <ThemeChanger />
       </Header>
       <MainWrapper>{children}</MainWrapper>
     </>
