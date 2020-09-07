@@ -4,9 +4,10 @@ import { ThemeToggler } from "gatsby-plugin-dark-mode"
 export default () => (
   <ThemeToggler>
     {({ theme, toggleTheme }) => (
-      <label>
+      <label htmlFor="darkmode">
         <input
           type="checkbox"
+          id="darkmode"
           className="theme-changer"
           onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
           checked={theme === "dark"}
