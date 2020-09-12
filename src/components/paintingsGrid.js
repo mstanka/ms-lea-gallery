@@ -3,7 +3,8 @@ import styled from "styled-components"
 import PaintingCard from "./paintingCard"
 
 const PaintingsGridWrapper = styled.section`
-  margin: 2rem auto;
+  margin: 2rem auto 0;
+  padding-bottom: 2rem;
   display: grid;
   grid-template-columns: 1fr;
 

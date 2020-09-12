@@ -4,6 +4,7 @@ import { StaticQuery, graphql, Link } from "gatsby"
 import "../styles/global.scss"
 import styled from "styled-components"
 import ThemeChanger from "./themeChanger"
+import Footer from "./footer"
 
 const navigationQuery = graphql`
   {
@@ -28,6 +29,7 @@ const navigationQuery = graphql`
     }
   }
 `
+
 const MainWrapper = styled.main`
   max-width: 400px;
   margin: 0 auto;
@@ -108,7 +110,7 @@ const Layout = ({ children }) => {
                     {data.prismic.allNavigations.edges[0].node.branding}
                   </Link>
                 </Branding>
-  
+
                 <NavLinks>
                   {data.prismic.allNavigations.edges[0].node.navigation_links.map(
                     link => {
@@ -128,7 +130,8 @@ const Layout = ({ children }) => {
         />
         <ThemeChanger />
       </Header>
-      <MainWrapper>{children}</MainWrapper>     
+      <MainWrapper>{children}</MainWrapper>
+      <Footer />
     </>
   )
 }
