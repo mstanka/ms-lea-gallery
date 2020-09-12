@@ -128,7 +128,7 @@ const Layout = ({ children }) => {
         />
         <ThemeChanger />
       </Header>
-      <MainWrapper>{children}</MainWrapper>
+      <MainWrapper>{children}</MainWrapper>     
     </>
   )
 }

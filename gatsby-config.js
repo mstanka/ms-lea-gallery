@@ -6,7 +6,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-styled-components`,
-    'gatsby-plugin-dark-mode',
+    `gatsby-plugin-dark-mode`,
     `gatsby-plugin-sass`,
     {
       resolve: `@prismicio/gatsby-source-prismic-graphql`,
