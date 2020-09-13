@@ -1,9 +1,9 @@
 import React from "react"
-import Hero from "./hero"
-import PaintingsGrid from "./paintingsGrid"
+import Hero from "../Hero/Hero"
+import PaintingsGrid from "../PaintingsGrid/PaintingsGrid"
 
 const SliceZone = ({ body }) => {
-  console.log(body)
+ 
   return (
     <div>
       {body.map((bodyContent, i) => {

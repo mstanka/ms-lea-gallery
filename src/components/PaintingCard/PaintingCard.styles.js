@@ -1,10 +1,7 @@
-import React from "react"
-import { RichText } from "prismic-reactjs"
 import styled from "styled-components"
-import { Link } from "gatsby"
 
-const PaintingCardWrapper = styled.section`
-  padding: 1rem;  
+export const PaintingCardWrapper = styled.section`
+  padding: 1rem;
   background: var(--card-bg);
   border-radius: 5px;
   text-align: center;
@@ -36,18 +33,3 @@ const PaintingCardWrapper = styled.section`
     }
   }
 `
-
-const PaintingCard = ({ paintingTitle, paintingThumb, paintingLink }) => {
-  return (
-    <PaintingCardWrapper>
-      <RichText render={paintingTitle} />
-      <div className="painting-card-content">
-        <Link to={paintingLink}>
-          <img src={paintingThumb} alt="Painting" />
-        </Link>
-      </div>
-    </PaintingCardWrapper>
-  )
-}
-
-export default PaintingCard

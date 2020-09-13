@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
-import SliceZone from "../components/sliceZone"
-import Layout from "../components/layout"
+import SliceZone from "../components/SliceZone/SliceZone"
+import Layout from "../components/Layout/Layout"
 
 export const query = graphql`
   {

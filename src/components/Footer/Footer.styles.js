@@ -1,7 +1,6 @@
-import React from "react"
 import styled from "styled-components"
 
-const FooterWrapper = styled.header`
+export const FooterWrapper = styled.header`
   background: var(--header-bg);
   color: var(--primary-text-color);
   min-height: 60px;
@@ -32,16 +31,3 @@ const FooterWrapper = styled.header`
     }
   }
 `
-
-const Footer = () => {
-  return (
-    <FooterWrapper>
-      <p>
-        Copyright &copy; 2020,{" "}
-        <a href="https://leasucikova.com">leasucikova.com</a>
-      </p>
-    </FooterWrapper>
-  )
-}
-
-export default Footer
